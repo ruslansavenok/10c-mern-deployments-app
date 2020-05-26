@@ -1,9 +1,6 @@
 const Deployment = require("../models/Deployment");
-const templates = require("../config/templates");
-
-function randomInteger(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+const templates = require("../setup/templates");
+const { randomInteger } = require("./utils");
 
 async function addDeployment() {
   const template = templates[randomInteger(0, templates.length - 1)];

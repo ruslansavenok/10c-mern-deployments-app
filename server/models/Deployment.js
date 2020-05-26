@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const templates = require("../config/templates");
+const { randomInteger } = require("../setup/utils");
+const templates = require("../setup/templates");
 const { Schema } = mongoose;
 
 const URL_REGEX = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
@@ -41,7 +42,7 @@ const DeploymentSchema = Schema({
   },
   deployedAt: {
     type: Date,
-    default: Date.now,
+    default: () => new Date().getTime() + randomInteger(30, 60) * 1000,
   },
 });
 

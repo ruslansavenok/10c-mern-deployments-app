@@ -1,4 +1,3 @@
-import unionWith from "lodash/unionWith";
 import * as actionTypes from "./actionTypes";
 import { makeReducer } from "./utils";
 
@@ -27,11 +26,7 @@ const reducer = {
 
   [actionTypes.REFRESH_DEPLOYMENTS_OK]: (state, { deployments }) => ({
     ...state,
-    deployments: unionWith(
-      deployments,
-      state.deployments,
-      (newItem, oldItem) => newItem._id !== oldItem.id
-    ),
+    deployments,
   }),
 
   [actionTypes.REFRESH_DEPLOYMENTS_FAIL]: (state) => ({
@@ -72,7 +67,7 @@ const reducer = {
   [actionTypes.DELETE_DEPLOYMENT_OK]: (state, { id }) => ({
     ...state,
     isDeletingDeploymentWithId: null,
-    deployments: state.deployments.filter((item) => item.id !== id),
+    deployments: state.deployments.filter((item) => item._id !== id),
   }),
 
   [actionTypes.DELETE_DEPLOYMENT_FAIL]: (state) => ({

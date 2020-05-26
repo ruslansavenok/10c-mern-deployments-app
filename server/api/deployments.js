@@ -1,6 +1,6 @@
 const express = require("express");
 const Deployment = require("../models/Deployment");
-const templates = require("../config/templates");
+const templates = require("../setup/templates");
 const router = express.Router();
 
 function generateError(msg, fields) {
@@ -16,7 +16,7 @@ router.get("/", async function (req, res) {
   try {
     const deployments = await Deployment.find()
       .sort({ deployedAt: -1 })
-      .limit(100);
+      .limit(50);
     res.json(deployments);
   } catch (e) {
     respondWithUnknownError(e, res);

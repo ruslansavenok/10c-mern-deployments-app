@@ -1,7 +1,7 @@
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
-const setupMongo = require("./config/setup_mongo");
+const setupMongo = require("./setup/setup_mongo");
 const { deployments, templates } = require("./api");
 
 const app = express();
@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3001;
 const DB_URL = process.env.DB_URL;
 
 if (!DB_URL) {
-  throw new Error('Missing DB_URL env variable');
+  throw new Error("Missing DB_URL env variable");
 }
 
 setupMongo(DB_URL);
