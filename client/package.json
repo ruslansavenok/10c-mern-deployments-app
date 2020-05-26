@@ -23,6 +23,10 @@
     "redux-thunk": "^2.3.0",
     "styled-components": "^5.1.1"
   },
+  "engines": {
+    "node": "12.x",
+    "npm": "6.9.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

@@ -46,6 +46,7 @@ function Table({ deployments, onDelete, isDeletingDeploymentWithId }) {
         <TransitionGroup component={null}>
           {deployments.map((deployment) => {
             const deployedAt = new Date(deployment.deployedAt);
+            const isDeleting = isDeletingDeploymentWithId === deployment._id;
 
             return (
               <CSSTransition
@@ -88,11 +89,9 @@ function Table({ deployments, onDelete, isDeletingDeploymentWithId }) {
                             type="button"
                             className="btn btn-danger"
                             onClick={() => onDelete(deployment._id)}
-                            disabled={
-                              isDeletingDeploymentWithId === deployment._id
-                            }
+                            disabled={isDeleting}
                           >
-                            {isDeletingDeploymentWithId === deployment._id
+                            {isDeleting
                               ? "..."
                               : "Delete"}
                           </button>

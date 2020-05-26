@@ -1,4 +1,4 @@
-Live url ->
+Live url -> https://nameless-depths-86547.herokuapp.com/
 
 - back-end automatically generates new record every 5-30 seconds
 - data is automatically refreshed every 5 seconds
