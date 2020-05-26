@@ -9,7 +9,7 @@ async function setupMongo(url) {
     });
     console.log("Successfully connected to MongoDB!");
 
-    //generateDeployments();
+    generateDeployments();
   } catch (e) {
     console.error("Connection to DB failed", e.message);
     process.exit(1);
